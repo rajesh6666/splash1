@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./app.css">
+    </head>
+    <body>
+        <div class="letters">
+            <span class="fall--1">
+                <span class="bfall--1">
+                    <span class="plonge--1">
+                        <span class="tremble"><img src="./assets/img/1.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--2">
+                <span class="bfall--2">
+                    <span class="plonge--2">
+                        <span class="tremble"><img src="./assets/img/2.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--3">
+                <span class="bfall--3">
+                    <span class="plonge--3">
+                        <span class="tremble"><img src="./assets/img/3.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--4">
+                <span class="bfall--4">
+                    <span class="plonge--4">
+                        <span class="tremble"><img src="./assets/img/4.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--5">
+                <span class="bfall--5">
+                    <span class="plonge--5">
+                        <span class="tremble"><img src="./assets/img/5.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--6">
+                <span class="bfall--6">
+                    <span class="plonge--6">
+                        <span class="tremble"><img src="./assets/img/6.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--7">
+                <span class="bfall--7">
+                    <span class="plonge--7">
+                        <span class="tremble"><img src="./assets/img/7.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--8">
+                <span class="bfall--8">
+                    <span class="plonge--8">
+                        <span class="tremble"><img src="./assets/img/8.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+            <span class="fall--9">
+                <span class="bfall--9">
+                    <span class="plonge--9">
+                        <span class="tremble"><img src="./assets/img/9.png" alt=""></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <div class="objects">
+            <div class="object circle"></div>
+            <div class="object square"></div>
+            <div class="object diamond"></div>
+            <div class="object circle"></div>
+            <div class="object square"></div>
+            <div class="object diamond"></div>
+            <div class="object circle"></div>
+            <div class="object square"></div>
+            <div class="object diamond"></div>
+            <div class="object circle"></div>
+            <div class="object square"></div>
+            <div class="object diamond"></div>
+            <div class="object circle"></div>
+            <div class="object square"></div>
+            <div class="object diamond"></div>
+        </div>
+        <div class="full-water">
+            <div class="water">
+                <div class="splash splash--1"></div>
+                <div class="splash splash--2"></div>
+                <div class="splash splash--3"></div>
+                <div class="splash splash--4"></div>
+                <div class="splash splash--5"></div>
+                <div class="splash splash--6"></div>
+                <div class="splash splash--7"></div>
+                <div class="splash splash--8"></div>
+                <div class="splash splash--9"></div>
+                <svg class="wobble" viewBox="0 0 841.9 73.5">
+                    <path id="trampoline" fill="#ED1C24" d="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z"></path>
+                    <animate xlink:href="#trampoline" attributeName="d" begin="5.2s" dur="1s" fill="freeze"
+                        keyTimes="0; 0.2; 0.5; 1"
+                        values="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z; M851,79.5H-8V13.4c0,0,243,10,430,10s429-10,429-10V79.5z; M851,79.5H-8V13.4c0,0,243-4,430-4s429,4,429,4V79.5z; M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z;">
+                    </animate>
+                </svg>
+            </div>
+        </div>
+
+        <div id="particle"></div>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+        <!-- first include tsParticles engine -->
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
+
+        <!-- then include any tsParticles plugin needed -->
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles/tsparticles.bundle.min.js"></script>
+
+        <!-- then include jquery wrapper -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery-particles"></script>
+
+        <script>
+            // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+            // starting from v2 you can add only the features you need reducing the bundle size
+            setTimeout(async () => {
+                $('#particle').addClass('particle')
+                
+                await loadFull(tsParticles);
+                $(".particle")
+                .particles()
+                .init({
+                    background: {
+                        color: {
+                            value: "#171E2E",
+                        },
+                    },
+                    fpsLimit: 120,
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: "push",
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: "repulse",
+                            },
+                            resize: true,
+                        },
+                        modes: {
+                            push: {
+                                quantity: 4,
+                            },
+                            repulse: {
+                                distance: 200,
+                                duration: 0.4,
+                            },
+                        },
+                    },
+                    particles: {
+                        color: {
+                            value: "#ffffff",
+                        },
+                        links: {
+                            color: "#ffffff",
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.5,
+                            width: 1,
+                        },
+                        collisions: {
+                            enable: true,
+                        },
+                        move: {
+                            direction: "none",
+                            enable: true,
+                            outModes: {
+                                default: "bounce",
+                            },
+                            random: false,
+                            speed: 6,
+                            straight: false,
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                                area: 800,
+                            },
+                            value: 80,
+                        },
+                        opacity: {
+                            value: 0.5,
+                        },
+                        shape: {
+                            type: "circle",
+                        },
+                        size: {
+                            value: { min: 1, max: 5 },
+                        },
+                    },
+                    detectRetina: true,
+                },
+                function (container) {
+                    // container is the particles container where you can play/pause or stop/start.
+                    // the container is already started, you don't need to start it manually.
+                });
+            }, 6000)
+        </script>
+    </body>
+</html>
